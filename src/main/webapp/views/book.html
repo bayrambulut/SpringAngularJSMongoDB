@@ -1,0 +1,110 @@
+<doctype html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, book!</title>
+
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<script src="../js/book_service.js"></script>
+	<script src="../js/book_controller.js"></script>
+</head>
+
+<body>
+	<div class="container" ng-app="myApp" ng-controller="myController as c">
+	
+		<div class="panel panel-default">
+			<div class="panel-heading"><span class="lead">Book Registration Form </span></div>
+			<div class="formcontainer">
+			
+			<div class="formcontainer box">
+				<form name="myForm">
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Book Name</label>
+							<input placeholder="Enter book name" type="text" name="uname" class="form-control" ng-model="c.book.name" required/>
+							<div class="has-error" ng-show="myForm.$dirty">
+								<span ng-show="myForm.uname.$error.required">This is a required field</span>
+                            </div>
+						</div>
+						<div class="form-group col-md-6">
+							<label>Author</label>
+							<input type="text" class="form-control" ng-model="c.book.author" required/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Summary</label>
+						<input type="text" class="form-control" ng-model="c.book.summary" required/>
+					</div>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Year</label>
+							<input type="text" class="form-control" ng-model="c.book.year" required/>
+						</div>
+						<div class="form-group col-md-2">
+							<label>Total Pages</label>
+							<input type="text" class="form-control" ng-model="c.book.page" required/>
+						</div>
+						<div class="form-group col-md-4">
+							<label>ISBN</label>
+							<input type="text" class="form-control" ng-model="c.book.isbn" required/>
+						</div>
+					</div>
+					<input value="{{!c.book.id ? 'Add' : 'Update'}}" type="button" class="btn btn-primary" ng-click="c.submit()" ng-disabled="myForm.$invalid" />
+					
+				</form>
+			</div>
+			
+			</div>
+		</div>
+		
+		<div class="panel panel-default">
+			<div class="panel-heading"><span class="lead">List books </span></div>
+			<div class="tablecontainer">				
+                  <table class="table table-bordered">
+                      <thead>
+                          <tr>
+                              <th>name</th>
+                              <th>author</th>
+                              <th>summary</th>
+                              <th>year</th>
+                              <th>page</th>
+                              <th>isbn</th>
+                              <th></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr ng-repeat="b in c.books">
+                              <td><span ng-bind="b.name"></span></td>
+                              <td><span ng-bind="b.author"></span></td>
+                              <td><span ng-bind="b.summary"></span></td>
+                              <td><span ng-bind="b.year"></span></td>
+                              <td><span ng-bind="b.page"></span></td>
+                              <td><span ng-bind="b.isbn"></span></td>
+                              <td>
+                              	<button type="button" class="btn btn-primary" ng-click="c.edit(b.id)">Edit</button>
+                              	<button type="button" class="btn btn-primary" ng-click="c.remove(b.id)">Delete</button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>				
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
