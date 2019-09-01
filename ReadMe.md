@@ -4,7 +4,7 @@ This sample project shows how to prepare an application using Spring Boot, Angul
 
 ## Installation
 
-Use the github connection [link](https://github.com/bayrambulut/springbootrestunit.git) to install application.
+Use the github connection [link](https://github.com/bayrambulut/SpringAngularJSMongoDB.git) to install application.
 
 ```git
 git clone --bare https://github.com/bayrambulut/SpringAngularJSMongoDB.git
