@@ -54,7 +54,7 @@ public class BookControllerTest {
 	@Test
 	public void list_test() throws JsonProcessingException, Exception {
 		
-		
+		System.out.println(1/0);
 		List<Book> books = new ArrayList<Book>();
 		books.add(new Book("Book1", "Author1", "Summary", "1982", "500", "ISBN1"));
 		books.add(new Book("Book2", "Author2", "Summary book2", "1900", "456", "ISBN test"));
